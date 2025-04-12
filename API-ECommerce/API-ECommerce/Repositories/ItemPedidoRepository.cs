@@ -6,7 +6,7 @@ namespace API_ECommerce.Repositories
 {
     public class ItemPedidoRepository : IItemPedidoRepository
     {
-        private readonly ItemPedido _context;
+        private readonly EcommerceContext _context;
 
         public ItemPedidoRepository (EcommerceContext context)
         {
@@ -25,7 +25,7 @@ namespace API_ECommerce.Repositories
 
         public void Cadastrar(ItemPedido itemPedido)
         {
-            throw new NotImplementedException();
+            _context.ItemPedidos.Add(itemPedido);
         }
 
         public void Deletar(int id)
@@ -35,7 +35,7 @@ namespace API_ECommerce.Repositories
 
         public List<ItemPedido> ListarTodos()
         {
-            throw new NotImplementedException();
+            return _context.ItemPedidos.ToList();
         }
     }
 }

@@ -6,6 +6,12 @@ namespace API_ECommerce.Repositories
 {
     public class PedidoRepository : IPedidoRepository
     {
+        private readonly EcommerceContext _context;
+
+        public PedidoRepository(EcommerceContext context)
+        {
+            _context = context;
+        }
         public void Atualizar(int id, Pedido pedido)
         {
             throw new NotImplementedException();
@@ -18,7 +24,7 @@ namespace API_ECommerce.Repositories
 
         public void Cadastrar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            _context.Pedidos.Add(pedido);
         }
 
         public void Deletar(int id)
@@ -28,7 +34,7 @@ namespace API_ECommerce.Repositories
 
         public List<Pedido> ListarTodos()
         {
-            throw new NotImplementedException();
+            return _context.Pedidos.ToList();
         }
     }
 }
