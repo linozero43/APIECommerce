@@ -11,16 +11,12 @@ namespace API_ECommerce.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
         private IProdutoRepository _produtoRepository;
 
-        //ctor (tab)
-        //Método Construtor
-        //Quando crir um objeto o que eu preciso ter?
-        public ProdutoController(EcommerceContext context)
+        //injeção de dependencia - avisa o c# que o controle depende de um repository
+        public ProdutoController(IProdutoRepository produtoRepository)
         {
-            _context = context;
-            _produtoRepository = new ProdutoRepository(_context);
+             _produtoRepository = produtoRepository;
         }
         // GET - Todo metodo que traz uma informação 
         [HttpGet]
@@ -33,10 +29,8 @@ namespace API_ECommerce.Controllers
         public IActionResult CadastrarProduto(Produto prod)
         {
             //1-Coloco o Produto no Banco de Dados
-            _produtoRepository.Cadastrar(prod);
-            //2-Salvo a Alteração
-            _context.SaveChanges();
-            //3-Retorno o resutado
+            _produtoRepository.Cadastrar(prod);           
+            //2-Retorno o resutado
             //201-Created
             return Created();
         }

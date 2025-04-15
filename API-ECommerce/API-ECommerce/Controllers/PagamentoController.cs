@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
+using API_ECommerce.Models;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,20 +12,17 @@ namespace API_ECommerce.Controllers
     [ApiController]
     public class PagamentoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
         private IPagamentoRepository _pagamentoRepository;
-
         //ctor (tab)
         //Método Construtor
         //Quando crir um objeto o que eu preciso ter?
-        public PagamentoController(EcommerceContext context)
+        public PagamentoController(PagamentoRepository pagamentoRepository)
         {
-            _context = context;
-            _pagamentoRepository = new PagamentoRepository(_context);
+            _pagamentoRepository = pagamentoRepository;
         }
         //1-Definir o Verbo
         [HttpGet]
-        public IActionResult ListarTodos()
+        public IActionResult ListarPagamentos()
         {
             return Ok(_pagamentoRepository.ListarTodos());
         }

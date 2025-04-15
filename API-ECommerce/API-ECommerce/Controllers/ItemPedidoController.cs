@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
+using API_ECommerce.Models;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,17 +11,21 @@ namespace API_ECommerce.Controllers
     [ApiController]
     public class ItemPedidoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
         private IItemPedidoRepository _itemPedidoRepository;
-
         //ctor (tab)
         //Método Construtor
         //Quando crir um objeto o que eu preciso ter?
-        public ItemPedidoController(EcommerceContext context)
+        public ItemPedidoController(ItemPedidoRepository itemPedidoRepository)
         {
-            _context = context;
-            _itemPedidoRepository = new ItemPedidoRepository(_context);
+            _itemPedidoRepository = itemPedidoRepository;
         }
-       
+        [HttpGet]
+        public IActionResult ListarPedido()
+        {
+            return Ok(_itemPedidoRepository.ListarTodos());
+        }
+        //Cadastrar Produto
+        
+        
     }
 }

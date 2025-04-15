@@ -17,10 +17,34 @@
         }
       }
     },
+    "/api/ItemPedido": {
+      "get": {
+        "tags": [
+          "ItemPedido"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Pagamento": {
       "get": {
         "tags": [
           "Pagamento"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Pedido": {
+      "get": {
+        "tags": [
+          "Pedido"
         ],
         "responses": {
           "200": {

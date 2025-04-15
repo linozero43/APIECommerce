@@ -10,9 +10,29 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "ListarPedido",
+    "RelativePath": "api/ItemPedido",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_ECommerce.Controllers.PagamentoController",
-    "Method": "ListarTodos",
+    "Method": "ListarPagamentos",
     "RelativePath": "api/Pagamento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.PedidoController",
+    "Method": "ListarPedidos",
+    "RelativePath": "api/Pedido",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
