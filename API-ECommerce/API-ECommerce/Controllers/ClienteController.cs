@@ -14,7 +14,7 @@ namespace API_ECommerce.Controllers
         //ctor (tab)
         //Método Construtor
         //Quando crir um objeto o que eu preciso ter?
-        public ClienteController(ClienteRepository clienteRepository)
+        public ClienteController(IClienteRepository clienteRepository)
         {
             _clienteRepository =clienteRepository;
         }

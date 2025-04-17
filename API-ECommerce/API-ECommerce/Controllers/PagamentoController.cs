@@ -16,7 +16,7 @@ namespace API_ECommerce.Controllers
         //ctor (tab)
         //Método Construtor
         //Quando crir um objeto o que eu preciso ter?
-        public PagamentoController(PagamentoRepository pagamentoRepository)
+        public PagamentoController(IPagamentoRepository pagamentoRepository)
         {
             _pagamentoRepository = pagamentoRepository;
         }
@@ -26,5 +26,52 @@ namespace API_ECommerce.Controllers
         {
             return Ok(_pagamentoRepository.ListarTodos());
         }
+        [HttpPost]
+        public IActionResult CadastrarPagamento(Pagamento pag)
+        {
+            //1-Coloco o Produto no Banco de Dados
+            _pagamentoRepository.Cadastrar(pag);
+            //2-Retorno o resutado
+            //201-Created
+            return Created();
+        }
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            Pagamento pagamento = _pagamentoRepository.BuscarPorId(id);
+            if (pagamento == null)
+            {
+                return NotFound();
+            }
+            return Ok(pagamento);
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _pagamentoRepository.Deletar(id);
+                return NoContent();
+            }
+            //caso der erro 
+            catch (Exception ex)
+            {
+                return NotFound("Pagamento não encontrado");
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, Pagamento pag)
+        {
+            try
+            {
+                _pagamentoRepository.Atualizar(id, pag);
+                return Ok(pag);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex);
+            }
+
+        } 
     }
 }
