@@ -9,7 +9,7 @@ namespace API_ECommerce.Repositories
     {
         private readonly EcommerceContext _context;
 
-        public  ClienteRepository(EcommerceContext context)
+        public ClienteRepository(EcommerceContext context)
         {
             _context = context;
         }

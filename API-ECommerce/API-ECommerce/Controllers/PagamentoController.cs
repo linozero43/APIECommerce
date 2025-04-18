@@ -72,6 +72,6 @@ namespace API_ECommerce.Controllers
                 return NotFound(ex);
             }
 
-        } 
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace API_ECommerce.Repositories
             produtoencontrado.Categoria = produto.Categoria;
             produtoencontrado.Imagem = produto.Imagem;
             produtoencontrado.EstoqueDisponivel = produto.EstoqueDisponivel;
-            
+
             _context.SaveChanges();
 
         }
@@ -51,12 +51,12 @@ namespace API_ECommerce.Repositories
 
         public void Cadastrar(Produto produto)
         {
-           _context.Produtos.Add(produto);
-           _context.SaveChanges();
+            _context.Produtos.Add(produto);
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
-        {   
+        {
             // 1- Encontrar o que eu quero excluir
             // Find - Procura pela chave primeiro
             Produto produtoencontrado = _context.Produtos.Find(id);

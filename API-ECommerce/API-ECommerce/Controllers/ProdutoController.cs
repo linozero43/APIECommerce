@@ -16,7 +16,7 @@ namespace API_ECommerce.Controllers
         //injeção de dependencia - avisa o c# que o controle depende de um repository
         public ProdutoController(IProdutoRepository produtoRepository)
         {
-             _produtoRepository = produtoRepository;
+            _produtoRepository = produtoRepository;
         }
         // GET - Todo metodo que traz uma informação 
         [HttpGet]
@@ -29,7 +29,7 @@ namespace API_ECommerce.Controllers
         public IActionResult CadastrarProduto(Produto prod)
         {
             //1-Coloco o Produto no Banco de Dados
-            _produtoRepository.Cadastrar(prod);           
+            _produtoRepository.Cadastrar(prod);
             //2-Retorno o resutado
             //201-Created
             return Created();
@@ -62,7 +62,7 @@ namespace API_ECommerce.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Produto prod) 
+        public IActionResult Editar(int id, Produto prod)
         {
             try
             {

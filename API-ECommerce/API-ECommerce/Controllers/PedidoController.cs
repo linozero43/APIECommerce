@@ -17,13 +17,13 @@ namespace API_ECommerce.Controllers
         //Quando crir um objeto o que eu preciso ter?
         public PedidoController(PedidoRepository pedidoRepository)
         {
-           _pedidoRepository = pedidoRepository;
+            _pedidoRepository = pedidoRepository;
         }
         [HttpGet]
         public IActionResult ListarPedidos()
         {
             return Ok(_pedidoRepository.ListarTodos());
         }
-       
+
     }
 }
