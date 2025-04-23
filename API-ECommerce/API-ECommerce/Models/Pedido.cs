@@ -19,5 +19,4 @@ public partial class Pedido
 
     public virtual ICollection<ItemPedido> ItemPedidos { get; set; } = new List<ItemPedido>();
 
-    public virtual ICollection<Pagamento> Pagamentos { get; set; } = new List<Pagamento>();
 }
