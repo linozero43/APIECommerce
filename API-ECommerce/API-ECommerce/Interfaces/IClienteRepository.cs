@@ -1,4 +1,5 @@
-﻿using API_ECommerce.Models;
+﻿using API_ECommerce.DTO;
+using API_ECommerce.Models;
 
 namespace API_ECommerce.Interfaces
 {
@@ -8,10 +9,12 @@ namespace API_ECommerce.Interfaces
 
         Cliente BuscarPorId(int id);
         Cliente BuscarPorEmailSenha(string email, string senha);
-        void Cadastrar(Cliente cliente);
+        void Cadastrar(CadastrarClienteDTO cliente);
 
         void Atualizar(int id, Cliente cliente);
 
         void Deletar(int id);
+
+        List<Cliente> BuscarClientePorNome(string nome);
     }
 }

@@ -1,4 +1,5 @@
-﻿using API_ECommerce.Interfaces;
+﻿using API_ECommerce.DTO;
+using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace API_ECommerce.Controllers
             return Ok(_clienteRepository.ListarTodos());
         }
         [HttpPost]
-        public IActionResult CadastrarPagamento(Cliente cli)
+        public IActionResult CadastrarPagamento(CadastrarClienteDTO cli)
         {
             //1-Coloco o Produto no Banco de Dados
             _clienteRepository.Cadastrar(cli);
@@ -68,6 +69,22 @@ namespace API_ECommerce.Controllers
                 return NotFound(ex);
             }
 
+        }
+        // /api/cliente/Fulano@gamail.com/123456
+        [HttpGet("{email}/{senha}")]
+        public IActionResult Login(string email, string senha)
+        {
+            var cliente = _clienteRepository.BuscarPorEmailSenha(email, senha);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return Ok(cliente);
+        }
+        [HttpGet("/buscar/{nome}")]
+        public IActionResult BuscarPorNome(string nome)
+        {
+            return Ok(_clienteRepository.BuscarClientePorNome(nome));
         }
     }
 }

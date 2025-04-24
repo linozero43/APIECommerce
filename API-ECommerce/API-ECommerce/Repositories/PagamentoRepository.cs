@@ -1,6 +1,8 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_ECommerce.Repositories
 {
@@ -34,9 +36,17 @@ namespace API_ECommerce.Repositories
             return _context.Pagamentos.FirstOrDefault(pag => pag.IdPagamento == id);
         }
 
-        public void Cadastrar(Pagamento pagamento)
+        public void Cadastrar(CadastrarPagamentoDTO pagamento)
         {
-            _context.Pagamentos.Add(pagamento);
+            Pagamento novopagamento = new Pagamento
+            {
+                IdPedido = pagamento.IdPedido,
+                Status = pagamento.Status,
+                Data = pagamento.Data,
+                FormaPagamento = pagamento.FormaPagamento,
+
+            };
+            _context.Pagamentos.Add(novopagamento);
             _context.SaveChanges();
         }
 
@@ -55,7 +65,7 @@ namespace API_ECommerce.Repositories
 
         public List<Pagamento> ListarTodos()
         {
-            return _context.Pagamentos.ToList();
+            return _context.Pagamentos.Include(p=> p.IdPedidoNavigation).ToList();
         }
     }
 }

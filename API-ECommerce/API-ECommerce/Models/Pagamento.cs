@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace API_ECommerce.Models;
 
@@ -16,4 +17,7 @@ public partial class Pagamento
     public DateTime Data { get; set; }
 
     public virtual Pedido? IdPedidoNavigation { get; set; } = null!;
+
+    public virtual ICollection<ItemPedido> ItemPedidos { get; set; } = new List<ItemPedido>();
+
 }

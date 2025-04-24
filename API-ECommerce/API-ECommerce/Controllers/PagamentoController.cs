@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using API_ECommerce.Repositories;
@@ -27,7 +28,7 @@ namespace API_ECommerce.Controllers
             return Ok(_pagamentoRepository.ListarTodos());
         }
         [HttpPost]
-        public IActionResult CadastrarPagamento(Pagamento pag)
+        public IActionResult CadastrarPagamento(CadastrarPagamentoDTO pag)
         {
             //1-Coloco o Produto no Banco de Dados
             _pagamentoRepository.Cadastrar(pag);
