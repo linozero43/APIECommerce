@@ -1,6 +1,7 @@
 ﻿using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using API_ECommerce.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_ECommerce.Controllers
@@ -10,6 +11,9 @@ namespace API_ECommerce.Controllers
     public class ClienteController : ControllerBase
     {
         private IClienteRepository _clienteRepository;
+        
+
+        
         //ctor (tab)
         //Método Construtor
         //Quando crir um objeto o que eu preciso ter?
@@ -22,15 +26,7 @@ namespace API_ECommerce.Controllers
         {
             return Ok(_clienteRepository.ListarTodos());
         }
-        [HttpPost]
-        public IActionResult CadastrarPagamento(CadastrarClienteDTO cli)
-        {
-            //1-Coloco o Produto no Banco de Dados
-            _clienteRepository.Cadastrar(cli);
-            //2-Retorno o resutado
-            //201-Created
-            return Created();
-        }
+
         [HttpGet("{id}")]
         public IActionResult ListarPorId(int id)
         {
@@ -85,6 +81,13 @@ namespace API_ECommerce.Controllers
         public IActionResult BuscarPorNome(string nome)
         {
             return Ok(_clienteRepository.BuscarClientePorNome(nome));
+        }
+        [HttpPost]
+        public IActionResult CadastrarCliente (CadastrarClienteDTO cliente)
+        {
+           
+            _clienteRepository.Cadastrar(cliente);
+            return Created();
         }
     }
 }

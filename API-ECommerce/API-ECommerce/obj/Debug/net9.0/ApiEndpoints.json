@@ -11,14 +11,14 @@
   },
   {
     "ContainingType": "API_ECommerce.Controllers.ClienteController",
-    "Method": "CadastrarPagamento",
+    "Method": "CadastrarCliente",
     "RelativePath": "api/Cliente",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cli",
+        "Name": "cliente",
         "Type": "API_ECommerce.DTO.CadastrarClienteDTO",
         "IsRequired": true
       }
@@ -110,6 +110,75 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "CadastrarPedido",
+    "RelativePath": "api/ItemPedido",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ped",
+        "Type": "API_ECommerce.Models.ItemPedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "ListarPorId",
+    "RelativePath": "api/ItemPedido/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "Deletar",
+    "RelativePath": "api/ItemPedido/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "Editar",
+    "RelativePath": "api/ItemPedido/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ped",
+        "Type": "API_ECommerce.Models.ItemPedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_ECommerce.Controllers.PagamentoController",
     "Method": "ListarPagamentos",
     "RelativePath": "api/Pagamento",
@@ -196,6 +265,59 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.PedidoController",
+    "Method": "CadastrarPedido",
+    "RelativePath": "api/Pedido",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ped",
+        "Type": "API_ECommerce.DTO.CadastrarPedidoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.PedidoController",
+    "Method": "Deletar",
+    "RelativePath": "api/Pedido/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.PedidoController",
+    "Method": "Editar",
+    "RelativePath": "api/Pedido/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ped",
+        "Type": "API_ECommerce.Models.Pedido",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

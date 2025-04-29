@@ -11,7 +11,6 @@ namespace API_ECommerce.DTO
         public string Status { get; set; } = null!;
 
         public DateTime Data { get; set; }
-
-       
+        
     }
 }

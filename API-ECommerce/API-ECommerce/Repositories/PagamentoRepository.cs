@@ -43,7 +43,7 @@ namespace API_ECommerce.Repositories
                 IdPedido = pagamento.IdPedido,
                 Status = pagamento.Status,
                 Data = pagamento.Data,
-                FormaPagamento = pagamento.FormaPagamento,
+                FormaPagamento = pagamento.FormaPagamento
 
             };
             _context.Pagamentos.Add(novopagamento);

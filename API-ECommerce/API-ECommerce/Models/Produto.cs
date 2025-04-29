@@ -19,7 +19,8 @@ public partial class Produto
     public string Categoria { get; set; } = null!;
 
     public string? Imagem { get; set; }
- 
+
+    [JsonIgnore]
     public virtual ICollection<ItemPedido> ItemPedidos { get; set; } = new List<ItemPedido>();
 
 }

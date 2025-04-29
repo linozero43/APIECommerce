@@ -1,11 +1,12 @@
 ﻿using API_ECommerce.DTO;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Interfaces
 {
     public interface IClienteRepository
     {
-        List<Cliente> ListarTodos();
+        List<ListarClienteViewModel> ListarTodos();
 
         Cliente BuscarPorId(int id);
         Cliente BuscarPorEmailSenha(string email, string senha);

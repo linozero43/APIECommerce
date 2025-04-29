@@ -2,6 +2,8 @@
 using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using API_ECommerce.Services;
+using API_ECommerce.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace API_ECommerce.Repositories
@@ -56,6 +58,8 @@ namespace API_ECommerce.Repositories
 
         public void Cadastrar(CadastrarClienteDTO cliente)
         {
+            var passwordService = new PasswordService();
+
             Cliente novoCliente = new Cliente
             {
                 NomeCompleto = cliente.NomeCompleto,
@@ -64,6 +68,9 @@ namespace API_ECommerce.Repositories
                 Senha = cliente.Senha,
                 Telefone = cliente.Telefone,
             };
+
+            novoCliente.Senha = passwordService.HashPassword(novoCliente);
+
             _context.Clientes.Add(novoCliente);
             _context.SaveChanges();
         }
@@ -84,9 +91,19 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
-        public List<Cliente> ListarTodos()
+        public List<ListarClienteViewModel> ListarTodos()
         {
-            return _context.Clientes.OrderBy(c => c.NomeCompleto).ToList();
+            //SELECT - permite que eu selecione quais campos eu quero pegar
+            return _context.Clientes.Select(c => new ListarClienteViewModel
+            {
+                IdCliente = c.IdCliente,
+                NomeCompleto= c.NomeCompleto,
+                Email = c.Email,
+                DataCadastro = c.DataCadastro,
+                Endereco= c.Endereco,
+                Telefone= c.Telefone,
+
+            }).ToList();
         }
 
         

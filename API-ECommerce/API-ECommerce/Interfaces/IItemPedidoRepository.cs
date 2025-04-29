@@ -1,11 +1,12 @@
 ﻿using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Interfaces
 {
     public interface IItemPedidoRepository
     {
         //Retorno - R - Read(Leitura)
-        List<ItemPedido> ListarTodos();
+        List<ListarItemPedidoViewModel> ListarTodos();
 
         //Recebe um identificador e retorna o produto correspondente 
         ItemPedido BuscarPorId(int id);
